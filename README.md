@@ -1,19 +1,19 @@
-1. Deploy both Interest and Diamond smart contracts.
+1. Deploy Diamond smart contract.
 
 2. Truffle Console
 
-3. Set initial variables for Diamond and Interest contracts
+3. Set initial variables for Diamond contract.
 	- let coin = await Diamond.deployed();
-	- let interest = await Interest.deployed();
 
 4. Confirm addresses of both contracts and test if variables above work
 	- coin.address;
-	- interest.address;
-	- BOTH should produce contract addresses
+	- output should produce contract addresses
 
 5. DIAMOND CONTRACT
 
-a. Set USDC ABI (see notes)
+a. Set USDC ABI 
+
+const usdc_abi = [{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"}];
 
 b. Link USDC ABI to USDC contract
 	- const usdc = new web3.eth.Contract(usdc_abi, '0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C');
@@ -37,34 +37,4 @@ g. Buy Diamond stablecoins from contract
 h. Import DIAMOND contract into wallet (Metamask), etc.
 
 i. If you wish to sell DIAMOND back to contract, execute sell function in Diamond contract.
-	- coin.sell('amount');
-
-6. INTEREST CONTRACT
-
-a. Call the setTimePeriod function (as the contract owner) by passing in a value (in seconds) for which you want the term to be. For example a term of 1 month (30.44 days) is equivalent to 
-2629743 seconds. This time period (term) can only be set once and will remain the term for the life of the contract. (use converter at https://www.convertunits.com and using CONVERT FROM 
-SECONDS TO ______)
-
-b. Call the setPercentage function. Passing in a value (in wei) which conforms to the following base point system (bps):
-	- 10000 = 100%
-	- 1000 = 10%
-	- 100 = 1%
-	- 10 = .1%
-	- 1 = .01%
-	- EX: An APY of 8.64% would be 864 / An APY of 24.25% would be 2425
-
-c. Call the erc20Contract() getter function. Make sure the output address is the same address as your DIAMOND smart contract. (run coin.address; to confirm)
-
-d. Call the timePeriodSet() getter function and ensure that the value returned is TRUE.
-
-e. Call the timePeriod() getter function and ensure that the value returned is the term (in seconds) you chose in Step 6a above.
-
-f. Call the percentageSet() getter function and ensure that the value returned is TRUE.
-
-g. Call the percentageBasisPoints() getter function and ensure that the value returned is the one you chose in Step 6b above.
-
-h. Call the owner() getter function and ensure that the value returned is your newly created account address (the interest earner smart contract's owner - you).
-
-i. Once the above is complete, transfer the Diamonds to the INTEREST smart contract.
-
-SOURCE: https://github.com/second-state/interest-earner-smart-contract   
+	- coin.sell('amount');  
