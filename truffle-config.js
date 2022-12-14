@@ -26,15 +26,15 @@ const { key, projectId, api_keys } = require('./secrets.json');
 module.exports = {
   plugins: ['truffle-plugin-verify', 'truffle-contract-size'],
   api_keys: {
-    etherscan: '4R2GG4ABQQEWKXAA9W547M4UQXP3TZUP4Y',
-    polygonscan: 'B67JZC62SHAGBKX3T4I3RM23MR6KYCIAYZ',
-    aurorascan: 'N6U25RYGE6UB39YC28CBVJBG1H1TCMFETZ ',
-    bscscan: 'F61QTTC7T2PFCGH3ADEWD9YUX4E55BQY77',
-    ftmscan: 'TN6482VHCR1RKKIFE6BNVA8RDVHNT1DJUU',
-    satoshiscan: '1fed8bdfbe214caa9346d560a62a46b0',
-    cronoscan: 'DD9UFSMC9ANUUEMGR11WBHRJCM8PBDS8H1',
-    arbiscan: 'IDSM5BWWXN3B12N4QW7DQC7KSWXA3V2XRB',
-    snowtrace: 'GPESGUKTA7S9FRMY4APBDX92E455YC3Z3B',
+    etherscan: 'PASTE YOUR API KEY HERE',
+    polygonscan: 'PASTE YOUR API KEY HERE',
+    aurorascan: 'PASTE YOUR API KEY HERE',
+    bscscan: 'PASTE YOUR API KEY HERE',
+    ftmscan: 'PASTE YOUR API KEY HERE',
+    satoshiscan: 'PASTE YOUR API KEY HERE',
+    cronoscan: 'PASTE YOUR API KEY HERE',
+    arbiscan: 'PASTE YOUR API KEY HERE',
+    snowtrace: 'PASTE YOUR API KEY HERE',
   },
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -211,52 +211,19 @@ module.exports = {
       provider: () => new HDWalletProvider(key, api_keys, `https://mainnet.infura.io/v3/${projectId}`),
       network_id: 1,
       gas: 8000000,       
-      gasPrice: 120000000000,
-      from: "0xef4101Da076f96214EDE97e98BFddD375b396536",        
+      gasPrice: 120000000000,        
       confirmations: 2,    
       timeoutBlocks: 200,  
       skipDryRun: false     
      },
-     //ropsten: {
-     // provider: () => new HDWalletProvider(key, api_keys, `https://ropsten.infura.io/v3/${projectId}`),
-     // network_id: 3,       // Ropsten's id
-     // gas: 5500000,        // Ropsten has a lower block limit than mainnet
-     // confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-     // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-     // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-     //},
-     //kovan: {
-     // provider: () => new HDWalletProvider(key, api_keys, `https://kovan.infura.io/v3/${projectId}`),
-     // network_id: 42,       // Ropsten's id
-     // gas: 5500000,        // Ropsten has a lower block limit than mainnet
-     // confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-     // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-     // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-     //},
-     //rinkeby: {
-     // provider: () => new HDWalletProvider(key, api_keys, `https://rinkeby.infura.io/v3/${projectId}`),
-     // network_id: 4,       // Ropsten's id
-     // gas: 5500000,        // Ropsten has a lower block limit than mainnet
-     // confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-     // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-     // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-     //},
      goerli: {
       provider: () => new HDWalletProvider(key, api_keys, `https://goerli.infura.io/v3/${projectId}`),
-      network_id: 5,       // Ropsten's id
-      gas: 5500000,        // Ropsten has a lower block limit than mainnet
+      network_id: 5,       // Goerli id
+      gas: 5500000,        
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
      },
-     //kiln: {
-     // provider: () => new HDWalletProvider(key, api_keys, `https://goerli.infura.io/v3/${projectId}`),
-     // network_id: 1337802, // Ropsten's id
-     // gas: 5500000,        // Ropsten has a lower block limit than mainnet
-     // confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-     // timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-     // skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
-     //},
     // Useful for private networks
     // private: {
     // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
