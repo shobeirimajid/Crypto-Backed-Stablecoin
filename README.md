@@ -1,2 +1,1 @@
-# Crypto-Backed-Stablecoin
-A Crypto Backed Stablecoin pegged 1:1 to USDC
+All source code is located in the master branch
