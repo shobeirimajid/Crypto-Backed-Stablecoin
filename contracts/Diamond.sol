@@ -37,10 +37,8 @@ contract Diamond is ERC20, Ownable, ReentrancyGuard, ERC20Permit, ERC20Votes {
     uint public stableDec = 6;
     IERC20 public USDC;
     uint public ad1 = 0;
-    uint public buyFee = 0;
-    uint public sellFee = 5;
-
-
+   
+   
     constructor(address _usdc , address _treasuryAddress) public ERC20("Diamond", "DIA") ERC20Permit("Diamond") Ownable() ReentrancyGuard() {
         USDC = IERC20(_usdc);
         treasuryAddress = _treasuryAddress;
