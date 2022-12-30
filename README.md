@@ -40,4 +40,6 @@ coin.buy('amount', 'USER WALLET ADDRESS', {from: 'USER WALLET ADDRESS'});
 
 13. If you wish to sell DIAMOND back to contract, execute sell function in Diamond contract.
 
-coin.sell('amount');  
+coin.sell('amount'); 
+
+DISCLAIMER: The contracts in this repository have not been audited. Use at your own risk. It is highly recommended you audit these contracts with an independent third party auditing company if you plan to use these contracts in a production environment where real crypto will be traded. By using these contracts, you hold me harmless from any loss of funds that may result from improper use or modifications of these contracts. 
